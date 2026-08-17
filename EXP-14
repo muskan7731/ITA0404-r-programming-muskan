@@ -1,0 +1,37 @@
+data(ChickWeight)
+
+# Display first records
+print(head(ChickWeight))
+
+# Sort according to weight
+sorted <- ChickWeight[order(ChickWeight$weight), ]
+
+print(head(sorted))
+
+# Load reshape2
+library(reshape2)
+
+# Melt
+melted <- melt(
+  ChickWeight,
+  id.vars = c("Chick", "Time", "Diet")
+)
+
+print(head(melted))
+
+# Cast by Diet
+casted <- dcast(
+  melted,
+  Diet ~ variable,
+  fun.aggregate = mean
+)
+
+print(casted)
+Built-in R dataset: ChickWeight
+  weight
+1     42
+2     51
+3     59
+4     64
+5     76
+6     93
