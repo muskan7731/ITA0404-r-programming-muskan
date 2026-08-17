@@ -1,0 +1,88 @@
+data(iris)
+
+set.seed(123)
+
+# Randomly shuffle data
+iris <- iris[sample(nrow(iris)), ]
+
+# 80% training and 20% testing
+train_index <- sample(
+  1:nrow(iris),
+  size = 0.8 * nrow(iris)
+)
+
+train <- iris[train_index, ]
+test <- iris[-train_index, ]
+
+# Logistic regression
+model <- glm(
+  Species ~ Petal.Length + Petal.Width,
+  data = train,
+  family = binomial
+)
+
+print(summary(model))
+
+# Predict
+prob <- predict(
+  model,
+  newdata = test,
+  type = "response"
+)
+
+# Convert probability to class
+predicted <- ifelse(
+  prob > 0.5,
+  "virginica",
+  "not virginica"
+)
+
+actual <- ifelse(
+  test$Species == "virginica",
+  "virginica",
+  "not virginica"
+)
+
+# Confusion matrix
+confusion_matrix <- table(
+  Actual = actual,
+  Predicted = predicted
+)
+
+print(confusion_matrix)
+
+# Accuracy
+accuracy <- mean(predicted == actual)
+
+cat("Accuracy:", accuracy, "\n")
+
+Iris dataset
+
+Training data = 80%
+Testing data = 20%
+
+Predictors:
+Petal.Length
+Petal.Width
+
+Target:
+Species
+
+Call:
+glm(formula = Species ~ Petal.Length + Petal.Width,
+    family = binomial, data = train)
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)
+(Intercept)    ...
+Petal.Length   ...
+Petal.Width    ...
+
+Confusion Matrix:
+
+             Predicted
+Actual        not virginica virginica
+not virginica      ...          ...
+virginica          ...          ...
+
+Accuracy: ...
