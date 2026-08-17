@@ -1,0 +1,24 @@
+# Read CSV file
+data <- read.csv("exam_data.csv")
+
+# Display contents
+print(data)
+
+# Display structure
+str(data)name,score,attempts,qualify
+John,85,1,Yes
+Mary,92,2,Yes
+David,70,3,No
+Lisa,88,1,Yes
+Peter,60,4,No    
+
+OUTPUT
+name score attempts qualify
+1   John    85        1     Yes
+2   Mary    92        2     Yes
+3  David    70        3      No
+4   Lisa    88        1     Yes
+5  Peter    60        4      No
+
+
+
