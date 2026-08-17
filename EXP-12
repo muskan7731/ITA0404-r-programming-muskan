@@ -1,0 +1,33 @@
+library(reshape2)
+
+data(airquality)
+
+print(head(airquality))
+
+# Melt data
+melted <- melt(
+  airquality,
+  id.vars = "Month",
+  measure.vars = c("Ozone", "Solar.R", "Wind", "Temp")
+)
+
+print(head(melted))
+
+# Cast data
+casted <- dcast(
+  melted,
+  Month ~ variable,
+  fun.aggregate = mean,
+  na.rm = TRUE
+)
+
+print(casted)
+INPUT
+Built-in R dataset: airquality
+  Month variable     value
+1     5    Ozone     41.0
+2     5    Ozone     36.0
+3     5    Ozone     12.0
+4     5    Ozone     18.0
+5     5    Ozone     NA
+6     5    Ozone     28.0
