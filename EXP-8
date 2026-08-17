@@ -1,0 +1,18 @@
+set.seed(10)
+
+x <- rnorm(100, mean = 50, sd = 10)
+
+print(x)
+
+# Count values greater than 50
+count <- sum(x > 50)
+
+cat("Number of values greater than 50:", count, "\n")
+INPUT
+Number of observations = 100
+Mean = 50
+Standard deviation = 10
+OUTPUT
+[1] 50.18692 44.18492 36.28576 48.64212 ...
+...
+Number of values greater than 50: 49
