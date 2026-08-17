@@ -1,0 +1,26 @@
+# Create factor
+gender <- factor(c("Female", "Male", "Female", "Male", "Female"))
+
+print(gender)
+print(levels(gender))
+
+# Frequency table
+print(table(gender))
+
+# Random sample of letters
+set.seed(10)
+letters_sample <- factor(sample(LETTERS, 10))
+
+print(letters_sample)
+print(levels(letters_sample))
+INPUT
+Female, Male, Female, Male, Female
+OUTPUT
+[1] Female Male   Female Male   Female
+Levels: Female Male
+
+[1] "Female" "Male"
+
+gender
+Female   Male
+     3      2
