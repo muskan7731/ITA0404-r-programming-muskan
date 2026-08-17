@@ -1,0 +1,42 @@
+exam_data <- data.frame(
+  name = c("John", "Mary", "David", "Lisa", "Peter"),
+  score = c(85, 92, 70, 88, 60),
+  attempts = c(1, 2, 3, 1, 4),
+  qualify = c("Yes", "Yes", "No", "Yes", "No")
+)
+
+print(exam_data)
+
+# Extract score column
+print(exam_data$score)
+
+# Extract first row
+print(exam_data[1, ])
+
+# Add a row
+exam_data <- rbind(
+  exam_data,
+  data.frame(name="Robert", score=78, attempts=2, qualify="Yes")
+)
+
+# Add a column
+exam_data$grade <- ifelse(exam_data$score >= 80, "A", "B")
+
+print(exam_data)
+
+# Sort by score
+sorted_data <- exam_data[order(exam_data$score, decreasing=TRUE), ]
+
+print(sorted_data)
+
+# Save data
+write.csv(exam_data, "exam_data.csv", row.names=FALSE)
+INPUT
+Names, scores, attempts and qualification status.
+OUTPUT
+    name score attempts qualify
+1   John    85        1     Yes
+2   Mary    92        2     Yes
+3  David    70        3      No
+4   Lisa    88        1     Yes
+5  Peter    60        4      No
