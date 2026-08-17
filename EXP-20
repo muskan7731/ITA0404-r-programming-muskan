@@ -1,0 +1,58 @@
+data(ChickWeight)
+
+# Convert Diet to factor
+ChickWeight$Diet <- factor(ChickWeight$Diet)
+
+# Multiple regression
+model <- lm(
+  weight ~ Time + Diet,
+  data = ChickWeight
+)
+
+# Model summary
+print(summary(model))
+
+# Predict weight
+new_data <- data.frame(
+  Time = 10,
+  Diet = factor(
+    "1",
+    levels = levels(ChickWeight$Diet)
+  )
+)
+
+prediction <- predict(
+  model,
+  newdata = new_data
+)
+
+cat("Predicted Weight:", prediction, "\n")
+
+# Model error
+predicted <- predict(model)
+
+error <- ChickWeight$weight - predicted
+
+MSE <- mean(error^2)
+
+cat("Mean Squared Error:", MSE, "\n")
+
+ChickWeight dataset
+
+Time = 10
+Diet = 1
+
+Call:
+lm(formula = weight ~ Time + Diet, data = ChickWeight)
+
+Coefficients:
+(Intercept)         Time        Diet2        Diet3        Diet4
+    ...
+    ...
+    ...
+    ...
+    ...
+
+Predicted Weight: ...
+
+Mean Squared Error: ...
