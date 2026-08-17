@@ -1,0 +1,30 @@
+# Install package if required
+# install.packages("datarium")
+
+library(datarium)
+
+data(advertising)
+
+# Build regression model
+model <- lm(Sales ~ TV, data = advertising)
+
+# Display model
+print(summary(model))
+
+# Predict Sales
+new_data <- data.frame(TV = 100)
+Advertising dataset
+TV advertising expenditure = 100
+prediction <- predict(model, newdata = new_data)
+
+cat("Predicted Sales:", prediction, "\n")
+
+Call:
+lm(formula = Sales ~ TV, data = advertising)
+
+Coefficients:
+(Intercept)           TV
+   ...
+   ...
+
+Predicted Sales: ...
