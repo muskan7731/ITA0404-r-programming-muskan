@@ -1,0 +1,39 @@
+boxplot(
+  iris$Sepal.Length,
+  main="Boxplot of Sepal Length",
+  ylab="Sepal Length"
+)hist(
+  iris$Sepal.Length,
+  main="Histogram of Sepal Length",
+  xlab="Sepal Length"
+)
+barplot(
+  table(iris$Species),
+  main="Number of Ix <- 1:10
+y <- x^2
+
+plot(
+  x, y,
+  type="l",
+  main="Line Chart",
+  xlab="X",
+  ylab="Y"
+)ris Species",
+  xlab="Species",
+  ylab="Count"
+)plot(
+  iris$Sepal.Length,
+  iris$Petal.Length,
+  main="Sepal Length vs Petal Length",
+  xlab="Sepal Length",
+  ylab="Petal Length"
+)
+
+
+Five graphs are generated:
+
+1. Boxplot
+2. Histogram
+3. Bar plot
+4. Line chart
+5. Scatter plot
